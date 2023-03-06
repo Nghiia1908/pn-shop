@@ -1,0 +1,17 @@
+version: '3.8'
+# Tạo một service với tên là pn-shop để lưu trữ MySQL trên container thay vì sử dụng dưới local
+services:
+  pn-shop:
+    image: mysql:8.0.30
+    container_name: pn-shop
+    ports:
+      - "3306:3306"
+    volumes:
+      - D:/PN-Shop -Project/MySQL/Data:/var/lib/mysql
+      - D:/PN-Shop -Project/MySQL/Config:/etc/mysql/conf.d
+    environment:
+    # Các thông số này thay đổi theo password mysql trên máy bạn nhé.
+      MYSQL_ROOT_PASSWORD: pnshop1908 
+      MYSQL_DATABASE: pn-shop
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: pnshop1908
